@@ -534,8 +534,10 @@ int main(int argc, char **argv)
 
     TVector2 vPull1; vPull1.Set(jet1->pullY, jet1->pullPhi);
     TVector2 vPull2; vPull2.Set(jet2->pullY, jet2->pullPhi);
-    TVector2 vPull3; vPull3.Set(jet3->pullY, jet3->pullPhi);
-    TVector2 vPull4; vPull4.Set(jet4->pullY, jet4->pullPhi);
+    
+    if(jet3) TVector2 vPull3; vPull3.Set(jet3->pullY, jet3->pullPhi);
+    
+    if(jet4) TVector2 vPull4; vPull4.Set(jet4->pullY, jet4->pullPhi);
     
     //
     // Fill output tree
@@ -584,33 +586,34 @@ int main(int argc, char **argv)
     jet2flavAlgo = jet2 ? jet2->mcFlavor    : -999;
     jet2flavPhys = jet2 ? jet2->mcFlavorPhys: -999;
     jet2npar     = jet2->nParticles;
-    
-    jet3vec      = &vJet3;
-    jet3pull     = &vPull3;
-    jet3qgid     = jet3->qgid;
-    jet3csv      = jet3->csv;
-    jet3pmass    = jet3->prunedm;
-    jet3q        = jet3->q;
-    jet3q03      = jet3->q03;
-    jet3q2       = jet3->q2;
-    jet3ptD      = jet3->ptD;
-    jet3flavAlgo = jet3 ? jet3->mcFlavor    : -999;
-    jet3flavPhys = jet3 ? jet3->mcFlavorPhys: -999;
-    jet3npar     = jet3->nParticles;
-    
-    jet4vec      = &vJet4;
-    jet4pull     = &vPull4;
-    jet4qgid     = jet4->qgid;
-    jet4csv      = jet4->csv;
-    jet4pmass    = jet4->prunedm;
-    jet4q        = jet4->q;
-    jet4q03      = jet4->q03;
-    jet4q2       = jet4->q2;
-    jet4ptD      = jet4->ptD;
-    jet4flavAlgo = jet4 ? jet4->mcFlavor    : -999;
-    jet4flavPhys = jet4 ? jet4->mcFlavorPhys: -999;
-    jet4npar     = jet4->nParticles;
-
+    if(jet3){    
+      jet3vec      = &vJet3;
+      jet3pull     = &vPull3;
+      jet3qgid     = jet3->qgid;
+      jet3csv      = jet3->csv;
+      jet3pmass    = jet3->prunedm;
+      jet3q        = jet3->q;
+      jet3q03      = jet3->q03;
+      jet3q2       = jet3->q2;
+      jet3ptD      = jet3->ptD;
+      jet3flavAlgo = jet3 ? jet3->mcFlavor    : -999;
+      jet3flavPhys = jet3 ? jet3->mcFlavorPhys: -999;
+      jet3npar     = jet3->nParticles;
+    }
+    if(jet4){
+      jet4vec      = &vJet4;
+      jet4pull     = &vPull4;
+      jet4qgid     = jet4->qgid;
+      jet4csv      = jet4->csv;
+      jet4pmass    = jet4->prunedm;
+      jet4q        = jet4->q;
+      jet4q03      = jet4->q03;
+      jet4q2       = jet4->q2;
+      jet4ptD      = jet4->ptD;
+      jet4flavAlgo = jet4 ? jet4->mcFlavor    : -999;
+      jet4flavPhys = jet4 ? jet4->mcFlavorPhys: -999;
+      jet4npar     = jet4->nParticles;
+    }
     outTree->Fill();
   }
   
