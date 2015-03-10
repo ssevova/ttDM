@@ -1,0 +1,11 @@
+<use name="BaconAna/DataFormats"/>
+<use name="BaconAna/Utils"/>
+<use name="DMSAna/Utils"/>
+<use name="CondFormats/JetMETObjects"/>
+<use name="root"/>
+<use name="roottmva"/>
+<flags CXXFLAGS="-g -Wall"/>
+<bin file="runSemiLeptPreselection.cc"     name="runSemiLeptPreselection"></bin>
+<bin file="runSemiLeptB2GPreselection.cc"  name="runSemiLeptB2GPreselection"></bin>
+<bin file="runSemiLeptB2Gv2Preselection.cc"  name="runSemiLeptB2Gv2Preselection"></bin>
+<bin file="runttDMSemiLeptPreselection.cc" name="runttDMSemiLeptPreselection"></bin>
