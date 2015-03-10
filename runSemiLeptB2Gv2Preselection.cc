@@ -535,9 +535,11 @@ int main(int argc, char **argv)
     TVector2 vPull1; vPull1.Set(jet1->pullY, jet1->pullPhi);
     TVector2 vPull2; vPull2.Set(jet2->pullY, jet2->pullPhi);
     
-    if(jet3){ TVector2 vPull3; vPull3.Set(jet3->pullY, jet3->pullPhi);}
-    
-    if(jet4){ TVector2 vPull4; vPull4.Set(jet4->pullY, jet4->pullPhi);}
+    TVector2 vPull3; 
+    TVector2 vPull4;
+    if(jet3) vPull3.Set(jet3->pullY, jet3->pullPhi);
+    if(jet4) vPull4.Set(jet4->pullY, jet4->pullPhi);
+
     
     //
     // Fill output tree
